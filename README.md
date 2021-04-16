@@ -48,29 +48,29 @@ Soldered together this perfectly fits into a small plastic case (Strapubox 2043)
 
 The gathered values can be retrieved via HTTP from the ESP8266.
 
-URL                | Content
------------------- | ----------------------------
-/                  | HTML Index Document
-/json              | JSON Document
-/s0/<n>            | S0 channel (n >= 1)
-/s0/<n>/clr        | Clear Meter Counters
-/s0/<n>/mtr        | Current Meter Value (Wh)
-/s0/<n>/age        | Age of last meassurement (s)
-/s0/<n>/pwr        | Current Power [W]
-/s0/<n>/pwr?avg=n  | Average power [W] of last n meassurements
-/sdm/<n>           | SDM device (n >= 1)
-/sdm/<n>/imp       | Import Meter [Wh]
-/sdm/<n>/exp       | Export Meter [Wh]
-/sdm/<n>/sum       | Total consumption (import - export) [Wh]
-/sdm/<n>/pwr       | Current Power [W]
-/sdm/<n>/pwr?avg=n | Average power [W] of last n meassurements
-/sml               | SML Meter
-/sml/imp           | Import Meter [Wh]
-/sml/exp           | Export Meter [Wh]
-/sml/sum           | Total consumption (import - export) [Wh]
-/sml/pwr           | Current Power [W]
-/sml/pwr?avg=n     | Average power of last n seconds
-/update            | OTA Firmware Update
+URL                  | Content
+-------------------- | --------------------------
+/                    | HTML Index Document
+/json                | JSON Document
+/s0/*n*              | S0 channel (*n* >= 1)
+/s0/*n*/clr          | Clear Meter Counters
+/s0/*n*/mtr          | Current Meter Value (Wh)
+/s0/*n*/age          | Age of last meassurement (s)
+/s0/*n*/pwr          | Current Power [W]
+/s0/*n*/pwr?avg=*m*  | Average power [W] of last *m* meassurements
+/sdm/*n*             | SDM device (*n* >= 1)
+/sdm/*n*/imp         | Import Meter [Wh]
+/sdm/*n*/exp         | Export Meter [Wh]
+/sdm/*n*/sum         | Total consumption (import - export) [Wh]
+/sdm/*n*/pwr         | Current Power [W]
+/sdm/*n*/pwr?avg=*m* | Average power [W] of last *m* meassurements
+/sml                 | SML Meter
+/sml/imp             | Import Meter [Wh]
+/sml/exp             | Export Meter [Wh]
+/sml/sum             | Total consumption (import - export) [Wh]
+/sml/pwr             | Current Power [W]
+/sml/pwr?avg=*m*     | Average power of last *m* seconds
+/update              | OTA Firmware Update
 
 
 
