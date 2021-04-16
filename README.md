@@ -38,9 +38,9 @@ This sketch uses `D5` for the photo transistor (collector of the transistor and 
 
 Soldered together this perfectly fits into a small plastic case (Strapubox 2043) which can be mounted on the electricity meter.
 
-![EnergyMeter SML Photo](img/EnergyMeter-sml.jpg?raw=true)
 ![EnergyMeter SML Board](img/EnergyMeter-sml-board.jpg?raw=true)
 ![EnergyMeter SML Case](img/EnergyMeter-sml-case.jpg?raw=true)
+![EnergyMeter SML Photo](img/EnergyMeter-sml.jpg?raw=true)
 
 
 
