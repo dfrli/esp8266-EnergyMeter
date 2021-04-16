@@ -1,3 +1,7 @@
+/* esp8266-EnergyMeter
+ * Copyright (c) 2021 David Froehlich
+ * https://github.com/dfrli/esp8266-EnergyMeter
+ */
 #include <SoftwareSerial.h>
 
 #define SML_SER_BAUD 9600

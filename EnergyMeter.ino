@@ -1,3 +1,7 @@
+/* esp8266-EnergyMeter
+ * Copyright (c) 2021 David Froehlich
+ * https://github.com/dfrli/esp8266-EnergyMeter
+ */
 #include <ESP8266WiFi.h>
 
 #define S0_PIN1        5 /* D1 */ /* S0(1) interrupt pin connected to (+) of S0 signal */

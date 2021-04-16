@@ -1,3 +1,7 @@
+/* esp8266-EnergyMeter
+ * Copyright (c) 2021 David Froehlich
+ * https://github.com/dfrli/esp8266-EnergyMeter
+ */
 #include <ESP8266WebServer.h>
 #include <ESP8266WebServerSecure.h>
 #include <ESP8266HTTPUpdateServer.h>

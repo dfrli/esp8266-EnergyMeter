@@ -1,3 +1,7 @@
+/* esp8266-EnergyMeter
+ * Copyright (c) 2021 David Froehlich
+ * https://github.com/dfrli/esp8266-EnergyMeter
+ */
 
 /* Reset S0 Meter Values */
 void s0_ClearCounter(const uint8_t chan) {
