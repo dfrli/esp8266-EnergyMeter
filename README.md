@@ -1,6 +1,6 @@
 # ESP8266 EnergyMeter
 
-This sketch reads energy values by counting **S0**-impulses from energy meters, reading out Eastron **SDM** devices via RS-485 Modbus and electric meters via optical **SML** interface (common in Germany).
+This Arduino sketch for ESP8266 reads energy values by counting **S0**-impulses from energy meters, reading out Eastron **SDM** devices via RS-485 Modbus and electric meters via optical **SML** interface (common in Germany).
 
 This software was initially written for ESP8266 on Wemos D1 mini/pro with Arduino IDE and tested with S0 impulses from common energy meters, Modbus communication with Eastron SDM120M and SDM220M, and SML messages sent via optical infrared interface by an Itron OpenWay 3.HZ.
 
