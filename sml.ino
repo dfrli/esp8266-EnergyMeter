@@ -242,8 +242,10 @@ void sml_Process(const char smlMsgByte) {
       break;
     case WAIT_INT:
       switch(smlMsgByte) {
+        case SML_TYPE_INT16: sml_msgDataType = SML_TYPE_INT16; break;
         case SML_TYPE_INT32: sml_msgDataType = SML_TYPE_INT32; break;
         case SML_TYPE_INT64: sml_msgDataType = SML_TYPE_INT64; break;
+        case SML_TYPE_UINT16: sml_msgDataType = SML_TYPE_UINT16; break;
         case SML_TYPE_UINT32: sml_msgDataType = SML_TYPE_UINT32; break;
         case SML_TYPE_UINT64: sml_msgDataType = SML_TYPE_UINT64; break;
         case 0x77: sml_msgState = RCVD_ENTRY; break;
