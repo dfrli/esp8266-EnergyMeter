@@ -48,6 +48,8 @@ enum {
   SML_TYPE_UINT64 = 0x69
 } __attribute__((packed)) sml_msgDataType; /* SML codes for data types */
 #define sml_DataTypeLen(a) ((((char)a) & 0x0F) - 1)
+#define sml_DataTypeSigned(a)   ((((char)a) & 0xF0) == 0x50)
+#define sml_DataTypeUnsigned(a) ((((char)a) & 0xF0) == 0x60)
 
 enum {
   SML_INIT,     /* waiting for start sequence */
@@ -257,6 +259,9 @@ void sml_Process(const char smlMsgByte) {
     case RCVD_INT:
       if(sml_msgValuePos == INT8_MIN) {
         sml_msgValuePos = sml_DataTypeLen(sml_msgDataType) - 1;
+        if(sml_DataTypeSigned(sml_msgDataType) && ((signed char)smlMsgByte < 0)) {
+          sml_msgValue.value = -1; /* Initialize negative number */
+        }
       }
       if(sml_msgValuePos >= 0 && (unsigned int)sml_msgValuePos < sizeof(sml_msgValue.data)) {
         sml_msgValue.data[sml_msgValuePos] = smlMsgByte;
