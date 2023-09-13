@@ -54,7 +54,7 @@ static const char* const wifiPSK = "12345678";
 
 /* S0 Constants */
 const uint8_t S0_CHANS = 2; /* Total number of S0 channels */
-const uint8_t S0_HIST_EXP = 3; /* Save 2^n historical power values */
+const uint8_t S0_HIST_EXP = 10+1-(S0_CHANS<10?S0_CHANS:10); /* Save 2^n historical power values */
 const uint16_t S0_HIST_SIZE = 1<<S0_HIST_EXP; /* Number of historical values */
 const uint16_t S0_MIN_PULSE_LEN = 25; /* Minimum pulse length for debounce [ms] */
 const uint16_t S0_MAX_POWER = 5000; /* Maximum acceptable power [W] for plausibility check */
@@ -75,7 +75,7 @@ uint16_t s0_histPos[S0_CHANS]; /* Current index in history ring buffer */
 
 /* SDM Globals */
 const uint8_t SDM_MAX_ID = 1; /* Highest Modbus ID (=maximum number) of Eastron SDM Meter */
-const uint8_t SDM_HIST_EXP = 8-(SDM_MAX_ID<8?SDM_MAX_ID:8); /* Save 2^n historical power values */
+const uint8_t SDM_HIST_EXP = 10+1-(SDM_MAX_ID<10?SDM_MAX_ID:10); /* Save 2^n historical power values */
 const uint16_t SDM_HIST_SIZE = 1<<SDM_HIST_EXP; /* Number of historical values */
 uint32_t sdm_timestamp[SDM_MAX_ID]; /* Timestamp of last update [ms] */
 uint8_t  sdm_errors[SDM_MAX_ID]; /* Number of consecutive read errors or timeouts */
@@ -86,7 +86,7 @@ int16_t  sdm_powerHist[SDM_MAX_ID][SDM_HIST_SIZE]; /* Ring buffer with historica
 uint16_t sdm_powerHistPos[SDM_MAX_ID]; /* Current index in history ring buffer */
 
 /* SML Globals */
-const uint8_t SML_HIST_EXP = 7; /* Save 2^n historical power values */
+const uint8_t SML_HIST_EXP = 10; /* Save 2^n historical power values */
 const uint16_t SML_HIST_SIZE = 1<<SML_HIST_EXP; /* Number of historical values */
 uint32_t sml_import; /* Import Meter [Wh] */
 uint32_t sml_export; /* Export Meter [Wh] */
