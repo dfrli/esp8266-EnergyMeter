@@ -66,7 +66,7 @@ void s0_ValidatePower(void) {
 }
 
 /* Routine triggered on every signal impulse */
-void ICACHE_RAM_ATTR interruptRoutine(const uint8_t chan) {
+void IRAM_ATTR interruptRoutine(const uint8_t chan) {
   if(chan < S0_CHANS) {
     const uint32_t t = millisDiff(s0_bounce[chan]); /* Time between two pulse */
     if(t < S0_MIN_PULSE_LEN || t < s0_pulsespacing[chan]) {
@@ -97,8 +97,8 @@ void ICACHE_RAM_ATTR interruptRoutine(const uint8_t chan) {
     s0_histPos[chan] = newHistPos;
   }
 }
-void ICACHE_RAM_ATTR interruptRoutine_1(void) { interruptRoutine(0); }
-void ICACHE_RAM_ATTR interruptRoutine_2(void) { interruptRoutine(1); }
+void IRAM_ATTR interruptRoutine_1(void) { interruptRoutine(0); }
+void IRAM_ATTR interruptRoutine_2(void) { interruptRoutine(1); }
 
 void s0_EnableInterrupt(const uint8_t chan) {
   if(chan < S0_CHANS) {
