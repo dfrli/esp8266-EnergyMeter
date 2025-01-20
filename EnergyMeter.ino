@@ -130,8 +130,8 @@ uint32_t currentMillis; /* Updated to millis() on every loop() cycle */
 uint8_t millisOverflow; /* Number of millis() overflows */
 
 /* Difference of ms between two millis() timestamps */
-inline uint32_t millisDiff(const uint32_t current_millis, const uint32_t previous_millis) __attribute__((always_inline));
-uint32_t millisDiff(const uint32_t current_millis, const uint32_t previous_millis) {
+inline uint32_t millisDiff(const uint32_t previous_millis, const uint32_t current_millis) __attribute__((always_inline));
+uint32_t millisDiff(const uint32_t previous_millis, const uint32_t current_millis) {
   return (current_millis < previous_millis)
     ? (UINT32_MAX - previous_millis + current_millis)
     : (current_millis - previous_millis);
@@ -140,7 +140,7 @@ uint32_t millisDiff(const uint32_t current_millis, const uint32_t previous_milli
 /* Difference of ms between a millis() timestamp and current time */
 inline uint32_t millisDiff(const uint32_t previous_millis) __attribute__((always_inline));
 uint32_t millisDiff(const uint32_t previous_millis) {
-  return millisDiff(currentMillis, previous_millis);
+  return millisDiff(previous_millis, currentMillis);
 }
 
 /* Uptime in seconds */
