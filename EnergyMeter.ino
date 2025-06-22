@@ -10,7 +10,8 @@
 #define SDM_SWRX_PIN  13 /* D7 */ /* SDM RX pin connected to RS-485 MAX3485 (RO) */
 #define SDM_SWTX_PIN  12 /* D6 */ /* SDM TX pin connected to RS-485 MAX3485 (DI) */
 #define SDM_DERE_PIN  16 /* D0 */ /* SDM pin connected to MAX3485 DE and !RE */
-#define WIFI_TXPOWER  10.0 /* dBm (range 17.5 .. 14.0 .. 10.0) */
+#define WIFI_TX_POWER 10.0        /* dBm (range 17.5 .. 14.0 .. 10.0) */
+#define WIFI_SLEEP_MODE WIFI_MODEM_SLEEP /* WIFI_MODEM_SLEEP or WIFI_NONE_SLEEP */
 
 const bool USE_S0  = true; /* Whether S0  support will be included */
 const bool USE_SML = true; /* Whether SML support will be included */
@@ -237,8 +238,8 @@ void setup(void) {
   Serial.println(F("Initializing WiFi"));
   WiFi.mode(WIFI_STA); /* WiFi station (client) mode */
   WiFi.setPhyMode(WIFI_PHY_MODE_11G); /* Limit to 802.11g for more reliable connection */
-  WiFi.setSleepMode(WIFI_NONE_SLEEP); /* Disable WiFi power saving for more reliable connection */
-  WiFi.setOutputPower(WIFI_TXPOWER); /* Set WiFi TX Power as required */
+  WiFi.setSleepMode(WIFI_SLEEP_MODE); /* Disable WiFi power saving for more reliable connection */
+  WiFi.setOutputPower(WIFI_TX_POWER); /* Set WiFi TX Power as required */
   WiFi.setAutoConnect(true);
   WiFi.setAutoReconnect(true);
   wifi_country_t wifiCountry = { .cc = "DE", .schan = 1, .nchan = 13, .policy = WIFI_COUNTRY_POLICY_MANUAL };
@@ -331,4 +332,7 @@ void loop(void) {
     sml_Loop();
     yield();
   }
+#ifdef WIFI_SLEEP_MODE
+  delay(1);
+#endif
 }
